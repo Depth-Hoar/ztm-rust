@@ -17,4 +17,3 @@
 // * Optionally use generics for each state
 
 fn main() {}
-

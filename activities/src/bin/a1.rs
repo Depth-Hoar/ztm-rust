@@ -9,15 +9,14 @@
 // * Use the println macro to display messages to the terminal
 
 fn first() {
-  println!("Depth");
+    println!("Depth");
 }
 
 fn last() {
-  println!("Hoar");
+    println!("Hoar");
 }
 
 fn main() {
-  first();
-  last();
+    first();
+    last();
 }
-

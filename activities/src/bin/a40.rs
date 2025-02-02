@@ -26,4 +26,3 @@ struct Corporate;
 struct StoreFront;
 
 fn main() {}
-

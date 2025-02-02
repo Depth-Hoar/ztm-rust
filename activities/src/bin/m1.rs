@@ -126,4 +126,3 @@ mod test {
         assert!(data.is_ok());
     }
 }
-

@@ -10,13 +10,12 @@
 // * Use the println macro to display messages to the terminal
 
 fn main() {
-  let a = 4;
-  if a > 5 {
-    println!(">5");
-  } else if a == 5 {
-    println!("=5");
-  } else {
-    println!("<5")
-  }
+    let a = 4;
+    if a > 5 {
+        println!(">5");
+    } else if a == 5 {
+        println!("=5");
+    } else {
+        println!("<5")
+    }
 }
-

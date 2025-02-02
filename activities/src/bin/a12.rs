@@ -11,4 +11,3 @@
 // * Implement functionality on the box struct to print the characteristics
 
 fn main() {}
-

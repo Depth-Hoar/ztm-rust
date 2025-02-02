@@ -27,4 +27,3 @@ fn msg_excited() -> &'static str {
 }
 
 fn main() {}
-

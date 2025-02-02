@@ -10,4 +10,3 @@
 // * Use break to exit the loop
 
 fn main() {}
-

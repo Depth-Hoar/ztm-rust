@@ -13,4 +13,3 @@
 const MOCK_DATA: &'static str = include_str!("mock-data.csv");
 
 fn main() {}
-

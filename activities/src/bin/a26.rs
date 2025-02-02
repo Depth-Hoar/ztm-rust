@@ -9,4 +9,3 @@
 //   for examples on how to create custom time formats
 
 fn main() {}
-

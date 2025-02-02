@@ -12,4 +12,3 @@
 // * The name and colors should be printed using a function
 
 fn main() {}
-
