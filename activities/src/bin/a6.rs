@@ -10,4 +10,10 @@
 // * Print the variable within the while loop
 // * Do not use break to exit the loop
 
-fn main() {}
+fn main() {
+    let mut index = 5;
+    while index >= 1 {
+        println!("{:?}", index);
+        index = index - 1;
+    }
+}
