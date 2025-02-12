@@ -12,4 +12,15 @@
 // * Use a match expression to determine which message
 //   to print
 
-fn main() {}
+fn print_value (value: bool) {
+    match value {
+        true => println!("its big"),
+        false => println!("its small"),
+    }
+}
+
+fn main() {
+    let value = 101;
+    let grater_than_100 = value > 100;
+    print_value(grater_than_100);
+}
