@@ -11,4 +11,39 @@
 // * Use an if expression to determine which person's info should be printed
 // * The name and colors should be printed using a function
 
-fn main() {}
+struct Person {
+    name: String,
+    age: i32,
+    fav_color: String,
+}
+
+fn print(data: &str) {
+    println!("{:?}", data);
+}
+
+fn main() {
+    let people = vec![
+        Person { 
+            name: String::from("Alice"),
+            age: 5,
+            fav_color: String::from("pink"),
+        },
+        Person { 
+            name: String::from("Bob"),
+            age: 7,
+            fav_color: String::from("red"),
+        },
+        Person { 
+            name: String::from("Jill"),
+            age: 14,
+            fav_color: String::from("yellow"),
+        }, 
+    ];
+
+    for person in people {
+        if person.age <= 10 {
+            print(&person.name);
+            print(&person.fav_color);
+        }
+    }
+}
