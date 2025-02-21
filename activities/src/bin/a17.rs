@@ -12,4 +12,8 @@
 //   to uppercase and lowercase
 //   * Try searching for: to_uppercase, to_lowercase
 
-fn main() {}
+fn main() {
+  let hello = "hello HELLO";
+  println!("{}", hello.to_uppercase());
+  println!("{}", hello.to_lowercase());
+}
