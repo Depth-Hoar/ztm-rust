@@ -60,6 +60,7 @@ fn print_power_action(state: PowerState) {
 
 fn main() {
     let mut buffer = String::new();
+    println!("enter new power state");
     let user_input_status = io::stdin().read_line(&mut buffer);
     if user_input_status.is_ok() {
         match PowerState::new(&buffer) {
