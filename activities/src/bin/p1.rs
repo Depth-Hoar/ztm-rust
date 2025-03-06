@@ -70,6 +70,48 @@ fn get_input() -> Option<String> {
     }
 }
 
+fn get_bill_amount() -> Option<f64> {
+    println!("Amount:");
+    loop {
+        let input = match get_input() {
+            Some(input) => input,
+            None => return None,
+        };
+        if &input == "" {
+            return None;
+        }
+        let parse_input: Result<f64, _> = input.parse();
+        match parse_input {
+            Ok(amount) => return Some(amount),
+            Err(_) => println!("Please enter a number"),
+        }
+    }
+}
+
+mod menu {
+    use crate::{get_input, get_bill_amount, Bills, Bill};
+
+    pub fn add_bill(bills: &mut Bills) {
+        println!("Bill name:");
+        let name = match get_input() {
+            Some(input) => input,
+            None => return,
+        };
+        let amount = match get_bill_amount() {
+            Some(amount) => amount,
+            None => return,
+        };
+        let bill = Bill { name, amount };
+        bills.add(bill);
+        println!("Bills added");
+    }
+    pub fn view_bills(bills: &Bills) {
+        for bill in bills.get_all() {
+            println!("{:?}", bill);
+        }
+    }
+}
+
 enum MainMenu {
     AddBill,
     ViewBill,
@@ -94,15 +136,16 @@ impl MainMenu {
 }
 
 fn main() {
-    // create bill structure
+    let mut bills = Bills::new();
 
     loop {
         MainMenu::show();
         let input = get_input().expect("no data entered");
         match MainMenu::from_str(input.as_str()) {
-            Some(MainMenu::AddBill) => (),
-            Some(MainMenu::ViewBill) => (),
+            Some(MainMenu::AddBill) => menu::add_bill(&mut bills),
+            Some(MainMenu::ViewBill) => menu::view_bills(&bills),
             None => return,
         }
+
     }
 }
