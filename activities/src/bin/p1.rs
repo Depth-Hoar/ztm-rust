@@ -205,8 +205,8 @@ fn run_program() -> Option<()> {
         match MainMenu::from_str(input.as_str()) {
             Some(MainMenu::AddBill) => menu::add_bill(&mut bills),
             Some(MainMenu::ViewBill) => menu::view_bills(&bills),
-            Some(MainMenu:: RemoveBill) => menu::remove_bill(&mut bills),
-            Some(MainMenu:: UpdateBill) => menu::update_bill(&mut bills),
+            Some(MainMenu::RemoveBill) => menu::remove_bill(&mut bills),
+            Some(MainMenu::UpdateBill) => menu::update_bill(&mut bills),
             None => break,
         }
     }
