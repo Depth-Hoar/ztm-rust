@@ -21,6 +21,8 @@
 // * Use a single match expression utilizing guards to implement the program
 // * Run the program and print the messages with at least 4 different tiles
 
+#![allow(dead_code)]
+
 #[derive(Debug)]
 enum TreasureItem {
     Gold,
@@ -54,4 +56,37 @@ enum Tile {
     Wood,
 }
 
-fn main() {}
+fn print_tile(tile: Tile) {
+    use Tile::*;
+    match tile {
+        Brick(brick @ BrickStyle::Gray | brick @ BrickStyle::Red) => {
+            println!("The brick color is {:?}", brick)
+        }
+        Brick(other) => println!("{:?} brick", other),
+        Dirt | Grass | Sand => println!("Ground tile"),
+        Treasure(TreasureChest {
+            amount,
+            content: TreasureItem::Gold,
+        }) if amount >= 100 => println!("Lots of gold!"),
+        Water(pressure) if pressure.0 < 10 => println!("Water pressure level: {}", pressure.0),
+        Water(pressure) if pressure.0 >= 10 => println!("High water pressure!"),
+        _ => (),
+    }
+}
+
+fn main() {
+    let tile = Tile::Brick(BrickStyle::Red);
+    print_tile(tile);
+
+    let tile = Tile::Sand;
+    print_tile(tile);
+
+    let tile = Tile::Treasure(TreasureChest {
+        content: TreasureItem::Gold,
+        amount: 200,
+    });
+    print_tile(tile);
+
+    let tile = Tile::Water(Pressure(9));
+    print_tile(tile);
+}
